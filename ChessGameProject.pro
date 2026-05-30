@@ -9,13 +9,13 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    chess.cpp \
-    main.cpp \
-    mainwindow.cpp
+    src/chess.cpp \
+    src/main.cpp \
+    src/mainwindow.cpp
 
 HEADERS += \
-    chess.h \
-    mainwindow.h
+    include/chess.h \
+    include/mainwindow.h
 
 FORMS += \
     mainwindow.ui
@@ -23,8 +23,7 @@ FORMS += \
 RESOURCES += \
     chess.qrc
 
-DISTFILES +=
-
+INCLUDEPATH += include
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
