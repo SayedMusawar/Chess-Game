@@ -7,18 +7,26 @@ A fully-featured two-player chess game built with **C++17** and **Qt 6 (Widgets)
 ## 📸 Screenshots
 
 ### Main Board — Starting Position
+<img width="632" height="711" alt="1" src="https://github.com/user-attachments/assets/2a778421-36fb-49dd-b8c6-74f41bfaa30a" />
+
 <!-- INSERT SCREENSHOT: Full board at game start, showing the wooden aesthetic and piece layout -->
 &nbsp;
 
 ### Move Highlighting — Valid Moves & Captures
+<img width="632" height="711" alt="2" src="https://github.com/user-attachments/assets/2c2ef9c2-ff24-44db-ad74-8d9b20702257" />
+
 <!-- INSERT SCREENSHOT: A piece selected, green dots on empty squares, red highlights on capturable enemy pieces -->
 &nbsp;
 
 ### King in Check
+<img width="632" height="711" alt="3" src="https://github.com/user-attachments/assets/ec0321ff-4587-4096-aa5f-ea5e46d2900d" />
+
 <!-- INSERT SCREENSHOT: The checked king's square flashing bright red with the status bar showing "♔ White is in CHECK!" -->
 &nbsp;
 
 ### Checkmate / Game Over Dialog
+<img width="632" height="711" alt="4" src="https://github.com/user-attachments/assets/373da052-5696-4d17-bba8-f5cbd5952712" />
+
 <!-- INSERT SCREENSHOT: The QMessageBox announcing the winner -->
 &nbsp;
 
