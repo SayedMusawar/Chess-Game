@@ -18,8 +18,8 @@ static const QColor kCheckSq     (255,  50,  50, 220);   // bright red – king 
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
-      selectedPos(-1, -1),
-      updateTimer(new QTimer(this)) {
+    selectedPos(-1, -1),
+    updateTimer(new QTimer(this)) {
 
     // Board area: 8×70 = 560px + 20px border each side = 600px wide
     // Height: 560 + 50 top (status) + 50 bottom (coords+bar) = 660
@@ -131,7 +131,7 @@ void MainWindow::drawHighlights(QPainter& painter) {
             for (int c = 0; c < 8; ++c) {
                 Piece* p = game.getPieceAt(Position(r, c));
                 if (p && p->getType() == PieceType::King
-                      && p->getColor() == toMove) {
+                    && p->getColor() == toMove) {
                     painter.setBrush(kCheckSq);
                     painter.drawRect(OX + c*70, OY + (7-r)*70, 70, 70);
                 }
@@ -236,13 +236,11 @@ void MainWindow::updateGameStatus() {
 
     if (game.isCheckmate(toMove)) {
         QString winner = (toMove == PieceColor::White) ? "Black ♛" : "White ♕";
-        QMessageBox::information(this, "Game Over",
-            QString("Checkmate!  %1 wins!").arg(winner));
+        showGameOver(QString("Checkmate!  %1 wins!").arg(winner));
         return;
     }
     if (game.isStalemate(toMove)) {
-        QMessageBox::information(this, "Game Over",
-            "Stalemate — the game is a draw!");
+        showGameOver("Stalemate — the game is a draw!");
         return;
     }
     if (game.isKingInCheck(toMove))
@@ -251,4 +249,14 @@ void MainWindow::updateGameStatus() {
         statusBar()->showMessage(QString("  %1  %2's turn").arg(icon).arg(name));
 
     update();   // repaint so king-check highlight appears immediately
+}
+
+// Shows the "Game Over" message without waiting for the click.
+// QMessageBox::information() blocks inside a nested event loop, which does not
+// work well when the game runs in a browser (WebAssembly). open() returns at once.
+void MainWindow::showGameOver(const QString& text) {
+    auto* box = new QMessageBox(QMessageBox::Information, "Game Over", text,
+                                QMessageBox::Ok, this);
+    box->setAttribute(Qt::WA_DeleteOnClose);
+    box->open();
 }

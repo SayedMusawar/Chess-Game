@@ -1,0 +1,23 @@
+# Qt Creator user/session files — NEVER commit these
+*.pro.user
+*.pro.user.*
+
+# Build output
+build/
+release/
+debug/
+*.o
+*.a
+Makefile
+moc_*.cpp
+ui_*.h
+qrc_*.cpp
+*.moc
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Test files
+1.cpp

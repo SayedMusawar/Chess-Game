@@ -197,3 +197,9 @@ Images are loaded at path `:Images/assets/{color}_{type}.png`. Missing images pr
 ## 📄 License
 
 This project is provided for educational and personal use. See `LICENSE` if present, or contact the author for usage terms.
+
+
+## License
+
+The source code is released under the MIT License (see LICENSE).
+The browser version is built with Qt for WebAssembly, which Qt offers under the GPLv3 or a commercial license. The browser build uses Qt under the GPLv3, and its source code is in this repository.

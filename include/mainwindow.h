@@ -31,6 +31,7 @@ private:
     void drawPieces(QPainter& p);
     void drawHighlights(QPainter& p);
     void drawCoordinates(QPainter& p);    // ← NEW: a-h / 1-8 labels on the border
+    void showGameOver(const QString& text);   // non-blocking "Game Over" message (works in the browser)
 };
 
 #endif // MAINWINDOW_H
